@@ -8,8 +8,6 @@ import java.util.List;
 */
 public interface DzjMapper {
 
-    //生成代码开始 don't delete
-
     int insertdzj(DzjBean object);
 
     int updatedzj(DzjBean object);
@@ -17,5 +15,5 @@ public interface DzjMapper {
     List<DzjBean> querydzj(DzjBean object);
 
     DzjBean querydzjLimit1(DzjBean object);
-    //生成代码结束 don't delete
+
 }
