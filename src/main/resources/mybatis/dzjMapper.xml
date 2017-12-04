@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dzj.demo.mapper.DzjMapper">
+
+    <!--生成代码开始 don't delete-->
+
+
+    <insert id="insertdzj">
+        INSERT INTO dzj_txt_mt
+        (
+        <trim suffixOverrides=",">
+            <if test="Id!=null">
+            Id,
+            </if>
+            <if test="dzjText!=null">
+            dzjText,
+            </if>
+            <if test="dzjTitle!=null">
+            dzjTitle,
+            </if>
+        </trim>
+        )
+        VALUES
+        (
+        <trim suffixOverrides=",">
+        <if test="Id!=null">
+        #{Id},
+        </if>
+        <if test="dzjText!=null">
+        #{dzjText},
+        </if>
+        <if test="dzjTitle!=null">
+        #{dzjTitle},
+        </if>
+        </trim>
+        );
+    </insert>
+
+    <update id="updatedzj">
+    UPDATE dzj_txt_mt
+    SET
+    <trim suffixOverrides=",">
+        <if test="dzjText != null and dzjText!=''">
+        dzjText = #{dzjText},
+        </if>
+        <if test="dzjTitle != null and dzjTitle!=''">
+        dzjTitle = #{dzjTitle},
+        </if>
+    </trim>
+    WHERE
+    <trim suffixOverrides="and">
+        Id = #{Id} and
+    </trim>
+    </update>
+    <select id="querydzj" resultType="com.dzj.demo.domain.DzjBean">
+        select
+        <include refid="baseResult"></include>
+        from  dzj_txt_mt
+    </select>
+
+    <select id="querydzjLimit1" resultType="com.dzj.demo.domain.DzjBean">
+        select
+        <include refid="baseResult"></include>
+        from  dzj_txt_mt
+        where Id=#{Id}
+    </select>
+
+    <sql id="baseResult">
+        Id, dzjText, dzjTitle
+    </sql>
+    <!--生成代码结束  don't delete-->
+
+</mapper>
