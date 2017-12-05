@@ -7,11 +7,14 @@
 </head>
 
 <body>
-dzj upload
-<br>
-<textarea cols="100" rows="1" name="file_name"></textarea><br>
-<button value="upload" type="button" name="upload">upload</button><br>
-<br>
+<form action="upload.do" method="post" enctype="multipart/form-data">
+  <p>
+    <input type="file" name="datafile">
+  </p>
+  <p>
+    <input type="submit" value="上传">
+  </p>
+</form>
 </body>
 
 </html>
