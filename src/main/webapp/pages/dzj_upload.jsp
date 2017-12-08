@@ -15,7 +15,7 @@
 </form>
 
 <div id="success_text"  style="display:none">Success</div>
-<div id="fail_text" style="display:none">Failed</div>
+<div id="fail_text" style="display:none">Fail</div>
 
 <script>
   var upload = function() {
@@ -28,6 +28,7 @@
       processData: false,
       contentType: false,
       success: function(result){
+        $("#success_text").html(result);
         $("#success_text").show();
       },
       error: function(){

@@ -35,7 +35,7 @@ public class UploadController {
 			dzj.setDzjTitle(file.getOriginalFilename());
 			dzj.setDzjText(text);
 			dzjMapper.insertdzj(dzj);
-			return "success";
+			return "success:" + dzj.getDzjTitle();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
