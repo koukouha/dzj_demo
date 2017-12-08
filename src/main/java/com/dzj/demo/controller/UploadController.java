@@ -6,13 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Iterator;
 
 /**
  * Created by hongbo.gao on 2017/12/5.
@@ -25,8 +26,10 @@ public class UploadController {
 
 	@RequestMapping(value = "/upload.do", method = RequestMethod.POST)
 	@ResponseBody
-	public String upload(@RequestParam(value="datafile",required=false)MultipartFile file){
+	public String upload(MultipartHttpServletRequest request){
 		try {
+			Iterator<String> itr = request.getFileNames();
+			MultipartFile file = request.getFile(itr.next());
 			String text = convertInputStreamToString(file.getInputStream());
 			DzjBean dzj = new DzjBean();
 			dzj.setDzjTitle(file.getOriginalFilename());

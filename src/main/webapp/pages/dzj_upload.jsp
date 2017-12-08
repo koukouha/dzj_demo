@@ -4,17 +4,44 @@
 <head>
   <meta content="text/html; charset=UTF8" http-equiv="content-type">
   <title>dzj upload</title>
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 </head>
 
 <body>
-<form action="upload.do" method="post" enctype="multipart/form-data">
-  <p>
-    <input type="file" name="datafile">
-  </p>
-  <p>
-    <input type="submit" value="上传">
-  </p>
+
+<form id= "uploadForm" enctype="multipart/form-data">
+  <input type="file" name="datafile" >
+  <input type="button" value="upload" onclick="upload()">
 </form>
+
+<div id="success_text"  style="display:none">Success</div>
+<div id="fail_text" style="display:none">Failed</div>
+
+<script>
+  var upload = function() {
+    init();
+    var formData = new FormData($("#uploadForm")[0]);
+    $.ajax({
+      type: "POST",
+      url: "/dzj/upload.do",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function(result){
+        $("#success_text").show();
+      },
+      error: function(){
+        $("#fail_text").show();
+      }
+    });
+  }
+
+  var init = function() {
+    $("#success_text").hide();
+    $("#fail_text").hide();
+  }
+</script>
+
 </body>
 
 </html>
