@@ -10,7 +10,7 @@
 <body>
 
 <form id= "uploadForm" enctype="multipart/form-data">
-  <input type="file" name="datafile" >
+  <input type="file" id="fileSelect" name="datafile" multiple >
   <input type="button" value="upload" onclick="upload()">
 </form>
 
@@ -19,27 +19,46 @@
 
 <script>
   var upload = function() {
+
     init();
-    var formData = new FormData($("#uploadForm")[0]);
-    $.ajax({
-      type: "POST",
-      url: "/dzj/upload.do",
-      data: formData,
-      processData: false,
-      contentType: false,
-      success: function(result){
-        $("#success_text").html(result);
-        $("#success_text").show();
-      },
-      error: function(){
-        $("#fail_text").show();
+//    var formData = new FormData($("#uploadForm")[0]);
+    var files = $("#fileSelect")[0].files;
+    var num = 0;
+    var uploadOne = function() {
+      if ( num >= files.length) {
+        return;
       }
-    });
+      var data = new FormData();
+      data.append('file-' + num, files[num]);
+      $.ajax({
+        type: "POST",
+        url: "/dzj/upload.do",
+        data: data,
+        processData: false, contentType: false,
+        success: function (result) {
+          $("#success_text").show();
+          $("#success_text").append(result);
+          $("#success_text").append("<br>");
+          num++;
+          uploadOne();
+        },
+        error: function () {
+          $("#fail_text").show();
+          $("#fail_text").append("failed");
+          $("#fail_text").append("<br>");
+          num++;
+          uploadOne();
+        }
+      });
+    };
+    uploadOne();
   }
 
   var init = function() {
-    $("#success_text").hide();
-    $("#fail_text").hide();
+    $("#success_text").html("");
+    $("#success_text").append("<br>");
+    $("#fail_text").html("");
+    $("#fail_text").append("<br>");
   }
 </script>
 
