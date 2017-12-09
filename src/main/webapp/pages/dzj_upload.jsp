@@ -5,62 +5,36 @@
   <meta content="text/html; charset=UTF8" http-equiv="content-type">
   <title>dzj upload</title>
   <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  <link href="css/fileUpload.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
-<form id= "uploadForm" enctype="multipart/form-data">
-  <input type="file" id="fileSelect" name="datafile" multiple >
-  <input type="button" value="upload" onclick="upload()">
-</form>
+  <input type="file" id="fileSelect" name="datafile" style="display:none" multiple >
+  <div id="fileUploadContent" class="fileUploadContent">
+    <div class="uploadBts">
+      <div>
+        <div class="selectFileBt" onclick="select()">选择文件</div>
+      </div>
+      <div>
+        <div class="selectFileBt" onclick="upload()">上传文件</div>
+      </div>
+    </div>
 
-<div id="success_text"  style="display:none">Success</div>
-<div id="fail_text" style="display:none">Fail</div>
+    <div class="subberProgress">
+      <div class="progress">
+        <div>0%</div>
+      </div>
+    </div>
 
-<script>
-  var upload = function() {
+    <div class="box">
+      <div id="success_text" style="display:none">Success</div>
+      <div id="fail_text" style="display:none">Fail</div>
+    </div>
+  </div>
 
-    init();
-//    var formData = new FormData($("#uploadForm")[0]);
-    var files = $("#fileSelect")[0].files;
-    var num = 0;
-    var uploadOne = function() {
-      if ( num >= files.length) {
-        return;
-      }
-      var data = new FormData();
-      data.append('file-' + num, files[num]);
-      $.ajax({
-        type: "POST",
-        url: "/dzj/upload.do",
-        data: data,
-        processData: false, contentType: false,
-        success: function (result) {
-          $("#success_text").show();
-          $("#success_text").append(result);
-          $("#success_text").append("<br>");
-          num++;
-          uploadOne();
-        },
-        error: function () {
-          $("#fail_text").show();
-          $("#fail_text").append("failed");
-          $("#fail_text").append("<br>");
-          num++;
-          uploadOne();
-        }
-      });
-    };
-    uploadOne();
-  }
 
-  var init = function() {
-    $("#success_text").html("");
-    $("#success_text").append("<br>");
-    $("#fail_text").html("");
-    $("#fail_text").append("<br>");
-  }
-</script>
+<script type="text/javascript" src="js/upload.js"></script>
 
 </body>
 
