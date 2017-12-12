@@ -19,6 +19,9 @@
       <div>
         <div class="selectFileBt" onclick="upload()">上传文件</div>
       </div>
+      <div>
+        <div class="selectFileBt" onclick="showTitle()">显示目录</div>
+      </div>
     </div>
 
     <div class="subberProgress">
@@ -30,9 +33,9 @@
     <div class="box">
       <div id="success_text" style="display:none">Success</div>
       <div id="fail_text" style="display:none">Fail</div>
+      <div id="title_list" style="display:none"></div>
     </div>
   </div>
-
 
 <script type="text/javascript" src="js/upload.js"></script>
 

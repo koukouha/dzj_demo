@@ -32,7 +32,7 @@ public class DzjMapperTest {
 		dzjMapper.insertdzj(dzj1);
 		dzjMapper.insertdzj(dzj2);
 
-		Assert.assertEquals(2, dzjMapper.querydzj(new DzjBean()).size());
+		Assert.assertEquals(2, dzjMapper.querydzj().size());
 
 	}
 

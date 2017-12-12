@@ -18,7 +18,7 @@ public interface DzjMapper {
     int updatedzj(DzjBean object);
 
     @Select("select * from dzj_txt_mt")
-    List<DzjBean> querydzj(DzjBean object);
+    List<DzjBean> querydzj();
 
     @Select("select * from dzj_txt_mt where Id = #{Id}")
     DzjBean querydzjLimit1(DzjBean object);

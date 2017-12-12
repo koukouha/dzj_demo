@@ -32,11 +32,31 @@ var upload = function() {
     uploadOne();
 }
 
+var showTitle = function(){
+    init();
+    $.ajax({
+        type: "GET",
+        url: "/dzj/showTitle.do",
+        data:{},
+        success: function (result) {
+            $("#title_list").show();
+            for (x in result) {
+                $("#title_list").append(result[x].dzjTitle);
+                $("#title_list").append("<br>");
+            }
+        },
+        error: function () {
+            $("#title_list").show();
+            $("#title_list").append("failed");
+            $("#title_list").append("<br>");
+        }
+    });
+}
+
 var init = function() {
     $("#success_text").html("");
-    $("#success_text").append("<br>");
     $("#fail_text").html("");
-    $("#fail_text").append("<br>");
+    $("#title_list").html("");
 }
 
 var select = function() {
