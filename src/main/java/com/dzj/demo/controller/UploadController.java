@@ -31,6 +31,7 @@ public class UploadController {
 			Iterator<String> itr = request.getFileNames();
 			MultipartFile file = request.getFile(itr.next());
 			String text = convertInputStreamToString(file.getInputStream());
+			//text = new String(text.getBytes("gb2312"),"utf-8");
 			DzjBean dzj = new DzjBean();
 			dzj.setDzjTitle(file.getOriginalFilename());
 			dzj.setDzjText(text);
@@ -52,4 +53,6 @@ public class UploadController {
 		}
 		return builder.toString();
 	}
+
+
 }

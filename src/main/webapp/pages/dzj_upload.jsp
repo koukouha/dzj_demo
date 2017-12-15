@@ -30,10 +30,14 @@
       </div>
     </div>
 
-    <div class="box">
-      <div id="success_text" style="display:none">Success</div>
-      <div id="fail_text" style="display:none">Fail</div>
+    <div class="box-left">
+      <div id="success_text" style="display:none"></div>
+      <div id="fail_text" style="display:none"></div>
       <div id="title_list" style="display:none"></div>
+    </div>
+
+    <div class="box-right">
+      <div id="dzj_text" style="display:none"></div>
     </div>
   </div>
 

@@ -4,6 +4,23 @@
     min-width: 200px;
     margin-top: 10px;
 }
+.fileUploadContent .box-left{
+    float:left;
+    width:39%;
+    font-size: 15px;
+    border: solid thin #DDDDDD;
+    min-height: 200px;
+    min-width: 200px;
+    margin-top: 10px;
+ }
+.fileUploadContent .box-right{
+    float:right;
+    width:59%;
+    border: solid thin #DDDDDD;
+    min-height: 200px;
+    min-width: 200px;
+    margin-top: 10px;
+}
 .fileUploadContent .fileItem{
     border: solid thin #DDDDDD;
     width: 150px;

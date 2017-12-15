@@ -41,9 +41,29 @@ var showTitle = function(){
         success: function (result) {
             $("#title_list").show();
             for (x in result) {
-                $("#title_list").append(result[x].dzjTitle);
+                titleLink = '<a id=' + result[x].id+ ' href="javascript:void(0);" onclick="showText(this)">' + result[x].dzjTitle + '</a>';
+                $("#title_list").append(titleLink);
                 $("#title_list").append("<br>");
             }
+        },
+        error: function () {
+            $("#title_list").show();
+            $("#title_list").append("failed");
+            $("#title_list").append("<br>");
+        }
+    });
+}
+
+var showText = function(obj){
+    $("#dzj_text").html("");
+    $.ajax({
+        type: "GET",
+        url: "/dzj/showText.do",
+        data: {id: obj.id},
+        success: function (result) {
+            $("#dzj_text").show();
+            $("#dzj_text").append(result.replace(/\r?\n/g, '<br>'));
+            $("#title_list").append("<br>");
         },
         error: function () {
             $("#title_list").show();
