@@ -23,4 +23,7 @@ public interface DzjMapper {
     @Select("select * from dzj_txt_mt where Id = #{Id}")
     DzjBean querydzjLimit1(DzjBean object);
 
+    @Select("select Id, dzjTitle from dzj_txt_mt")
+    List<DzjBean> querydzjTitle();
+
 }

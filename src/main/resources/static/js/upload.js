@@ -4,6 +4,9 @@ var upload = function() {
     var num = 0;
     var uploadOne = function() {
         if ( num >= files.length) {
+            $("#fileSelect").val("");
+            $("#show_message").show();
+            $("#show_message").html("操作完毕");
             return;
         }
         var data = new FormData();
@@ -32,6 +35,11 @@ var upload = function() {
     uploadOne();
 }
 
+var showSelectedNumber = function(){
+    $("#show_message").show();
+    $("#show_message").append('选择了' + $("#fileSelect")[0].files.length + '个文件准备上传');
+}
+
 var showTitle = function(){
     init();
     $.ajax({
@@ -55,7 +63,7 @@ var showTitle = function(){
 }
 
 var showText = function(obj){
-    $("#dzj_text").html("");
+    clearText()
     $.ajax({
         type: "GET",
         url: "/dzj/showText.do",
@@ -77,8 +85,17 @@ var init = function() {
     $("#success_text").html("");
     $("#fail_text").html("");
     $("#title_list").html("");
+    $("#show_message").html("");
 }
 
 var select = function() {
     $("#fileSelect").click();
+}
+
+var clearMessage = function() {
+    $("#show_message").html("");
+}
+
+var clearText = function() {
+    $("#dzj_text").html("");
 }

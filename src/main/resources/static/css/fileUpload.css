@@ -21,6 +21,10 @@
     min-width: 200px;
     margin-top: 10px;
 }
+.fileUploadContent .message{
+    font-size: 15px;
+    color: #0099FF;
+}
 .fileUploadContent .fileItem{
     border: solid thin #DDDDDD;
     width: 150px;

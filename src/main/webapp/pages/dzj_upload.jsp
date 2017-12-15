@@ -10,7 +10,7 @@
 
 <body>
 
-  <input type="file" id="fileSelect" name="datafile" style="display:none" multiple >
+  <input type="file" id="fileSelect" name="datafile" accept="text/plain" style="display:none" onchange="showSelectedNumber()" multiple >
   <div id="fileUploadContent" class="fileUploadContent">
     <div class="uploadBts">
       <div>
@@ -22,7 +22,12 @@
       <div>
         <div class="selectFileBt" onclick="showTitle()">显示目录</div>
       </div>
+      <div>
+        <div class="selectFileBt" onclick="">文件管理</div>
+      </div>
     </div>
+
+    <div class="message" id="show_message" style="display:none"></div>
 
     <div class="subberProgress">
       <div class="progress">

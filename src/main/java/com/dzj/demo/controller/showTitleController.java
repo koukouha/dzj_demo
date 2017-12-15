@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 @Controller
@@ -21,6 +19,6 @@ public class showTitleController {
     @RequestMapping(value = "/showTitle.do", method = RequestMethod.GET)
     @ResponseBody
     public List<DzjBean>  showTitle(){
-        return dzjMapper.querydzj();
+        return dzjMapper.querydzjTitle();
     }
 }
