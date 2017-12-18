@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-public class showTitleController {
+public class ShowTitleController {
 
     @Autowired
     DzjMapper dzjMapper;
