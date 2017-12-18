@@ -10,9 +10,16 @@
 <body>
     <form action="login.do">
         <table>
-            <tr><td><input type="text " name="username"></td></tr>
-            <tr><td><input type="text " name="password"></td></tr>
-            <tr><td><button type="submit">login</button></td></tr>
+            <tr>
+                <td colspan="2" align="right"><input type="text " name="username"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right"><input type="text " name="password"></td>
+            </tr>
+            <tr>
+                <td><button type="submit">登录</button></td>
+                <td><button type="button" onclick="">注册</button></td>
+            </tr>
         </table>
     </form>
 </body>
