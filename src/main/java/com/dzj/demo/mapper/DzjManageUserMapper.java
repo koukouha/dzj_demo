@@ -12,7 +12,7 @@ import java.util.List;
  */
 public interface DzjManageUserMapper {
 
-	@Insert("insert into dzj_manage_user(username, passowrd) values(#{username}, #{password})")
+	@Insert("insert into dzj_manage_user(username, password) values(#{username}, #{password})")
 	int insertDzjManageUser(DzjManageUserBean object);
 
 	@Update("update dzj_manage_user set username = #{username}, password = #{password} where id=#{id}")
@@ -20,4 +20,7 @@ public interface DzjManageUserMapper {
 
 	@Select("select * from dzj_manage_user")
 	List<DzjManageUserBean> queryDzjManageUser();
+
+	@Select("select * from dzj_manage_user where username = #{username} and password = #{password}")
+	DzjManageUserBean queryDzjManageUserbyUsernameAndPassword(DzjManageUserBean object);
 }

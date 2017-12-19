@@ -15,6 +15,6 @@ public class TopPageController {
 	public ModelAndView init(){
 		ModelMap model = new ModelMap();
 		model.addAttribute("name", "Spring Boot");
-		return new ModelAndView("/login", model);
+		return new ModelAndView("login", model);
 	}
 }

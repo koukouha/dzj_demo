@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+    <meta content="text/html; charset=UTF8" http-equiv="content-type"></meta>
+    <title>dzj upload</title>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <form action="login.do">
+        <table>
+            <tr>
+                <td colspan="2" align="right"><input type="text " id="username" name="username"></input></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right"><input type="text " id="password" name="password"></input></td>
+            </tr>
+            <tr>
+                <td><button type="submit">登录</button></td>
+                <td><button type="button" onclick="register()">注册</button></td>
+            </tr>
+        </table>
+    </form>
+
+    <div class="message" id="show_message" style="display:none"></div>
+
+    <script type="text/javascript">
+        var register = function() {
+            $.ajax({
+                type: "POST",
+                url: "/dzj/register.do",
+                data: {username:$("#username").val(),
+                password: $("#password").val()},
+                success: function(result){
+                    initMessage()
+                    $("#show_message").show();
+                    $("#show_message").append(result);
+                },
+                error: function(result) {
+                    initMessage()
+                    $("#show_message").show();
+                    $("#show_message").append(result);
+
+                }
+
+            })
+        }
+
+        var initMessage = function() {
+            $("#show_message").html("");
+            $("#show_message").hide();
+        }
+    </script>
+</body>
+
+</html>
