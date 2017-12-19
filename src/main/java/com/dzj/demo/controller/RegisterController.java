@@ -27,9 +27,9 @@ public class RegisterController {
 		userBean.setPassword(password);
 		int result = dzjManageUserMapper.insertDzjManageUser(userBean);
 		if (result == 1){
-			return "register successful";
+			return "注册成功";
 		} else {
-			return "register failed";
+			return "注册失败";
 		}
 	}
 }

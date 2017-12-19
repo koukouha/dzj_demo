@@ -5,6 +5,7 @@
     <meta content="text/html; charset=UTF8" http-equiv="content-type"></meta>
     <title>dzj upload</title>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <link href="css/login.css" rel="stylesheet" type="text/css"></link>
 </head>
 
 <body>
@@ -24,6 +25,7 @@
     </form>
 
     <div class="message" id="show_message" style="display:none"></div>
+    <div class="message" id="login_result" th:if="${message}" th:text="${message}"></div>
 
     <script type="text/javascript">
         var register = function() {
@@ -50,6 +52,8 @@
         var initMessage = function() {
             $("#show_message").html("");
             $("#show_message").hide();
+            $("#login_result").html("");
+            $("#login_result").hide();
         }
     </script>
 </body>
