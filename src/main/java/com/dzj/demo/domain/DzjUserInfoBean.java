@@ -7,9 +7,9 @@ import lombok.Data;
 *  @author author
 */
 @Data
-public class DzjManageUserBean {
+public class DzjUserInfoBean {
 
-    private Integer Id;
+    private Integer user_id;
 
     private String username;
 

@@ -1,7 +1,7 @@
 package com.dzj.demo.controller;
 
-import com.dzj.demo.domain.DzjBean;
-import com.dzj.demo.mapper.DzjMapper;
+import com.dzj.demo.domain.DzjMasterBean;
+import com.dzj.demo.mapper.DzjMasterMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +22,7 @@ import java.util.Iterator;
 public class UploadController {
 
 	@Autowired
-	DzjMapper dzjMapper;
+	DzjMasterMapper dzjMapper;
 
 	@RequestMapping(value = "/upload.do", method = RequestMethod.POST)
 	@ResponseBody
@@ -32,11 +32,11 @@ public class UploadController {
 			MultipartFile file = request.getFile(itr.next());
 			String text = convertInputStreamToString(file.getInputStream());
 			//text = new String(text.getBytes("gb2312"),"utf-8");
-			DzjBean dzj = new DzjBean();
-			dzj.setDzjTitle(file.getOriginalFilename());
-			dzj.setDzjText(text);
+			DzjMasterBean dzj = new DzjMasterBean();
+			dzj.setDzj_title_text(file.getOriginalFilename());
+			dzj.setDzj_text(text);
 			dzjMapper.insertdzj(dzj);
-			return "success:" + dzj.getDzjTitle();
+			return "success:" + dzj.getDzj_title_text();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

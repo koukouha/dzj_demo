@@ -1,6 +1,6 @@
 package com.dzj.demo.mapper;
 
-import com.dzj.demo.domain.DzjBean;
+import com.dzj.demo.domain.DzjMasterBean;
 import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,18 +16,18 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class DzjMapperTest {
 
 	@Autowired
-	DzjMapper dzjMapper;
+	DzjMasterMapper dzjMapper;
 
 	@Test
 	public void testInsertdzj() throws Exception {
-		DzjBean dzj1 = new DzjBean();
-		DzjBean dzj2 = new DzjBean();
+		DzjMasterBean dzj1 = new DzjMasterBean();
+		DzjMasterBean dzj2 = new DzjMasterBean();
 
-		dzj1.setDzjText("aaaaaaaaaaaaaaaa");
-		dzj1.setDzjTitle("aaa");
+		dzj1.setDzj_text("aaaaaaaaaaaaaaaa");
+		dzj1.setDzj_title_text("aaa");
 
-		dzj2.setDzjText("bbbbbbbbbbbbbbbb");
-		dzj2.setDzjTitle("bbb");
+		dzj2.setDzj_text("bbbbbbbbbbbbbbbb");
+		dzj2.setDzj_title_text("bbb");
 
 		dzjMapper.insertdzj(dzj1);
 		dzjMapper.insertdzj(dzj2);

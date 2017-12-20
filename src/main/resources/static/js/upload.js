@@ -49,7 +49,7 @@ var showTitle = function(){
         success: function (result) {
             $("#title_list").show();
             for (x in result) {
-                titleLink = '<a id=' + result[x].id+ ' href="javascript:void(0);" onclick="showText(this)">' + result[x].dzjTitle + '</a>';
+                titleLink = '<a id=' + result[x].dzj_id+ ' href="javascript:void(0);" onclick="showText(this)">' + result[x].dzj_title_text + '</a>';
                 $("#title_list").append(titleLink);
                 $("#title_list").append("<br>");
             }
