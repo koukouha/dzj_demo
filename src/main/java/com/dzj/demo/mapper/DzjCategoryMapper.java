@@ -1,6 +1,7 @@
 package com.dzj.demo.mapper;
 
 import com.dzj.demo.domain.DzjCategoryBean;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
@@ -27,4 +28,6 @@ public interface DzjCategoryMapper {
     @Select("select dzj_category_id, dzj_category_text from dzj_category")
     List<DzjCategoryBean> querydzjTitle();
 
+    @Delete("delete from dzj_category where dzj_category_id = #{dzj_category_id}")
+    int deletedzjByCategoryID(DzjCategoryBean object);
 }

@@ -135,6 +135,57 @@ var showText = function(obj){
     });
 }
 
+var showDeleteCategory = function() {
+    init();
+    $("#title_list").html("");
+    $("#category_list").html("");
+    $.ajax({
+        type: "GET",
+        url: "/dzj/showCategory.do",
+        data: {},
+        success: function (result) {
+            $("#show_message").show();
+            $("#show_message").html("请选择要删除的分类");
+            $("#category_list").show();
+            $("#category_list").append('<form action="" method="get"> ');
+            for (x in result) {
+                categoryLink = '<input value=' + result[x].dzj_category_text + ' type="checkbox" name="categorylist" >'
+                    + result[x].dzj_category_text + '</input>';
+                $("#category_list").append(categoryLink);
+                $("#category_list").append("<br>");
+            }
+            $("#category_list").append('<input type="button" onclick="deleteCategory()" value="删除" />');
+        },
+        error: function () {
+            $("#category_list").show();
+            $("#category_list").append("failed");
+            $("#category_list").append("<br>");
+        }
+    });
+
+}
+
+var deleteCategory = function() {
+    init();
+    $("#show_message").show();
+    $("#title_list").html("");
+    $("input[name='categorylist']:checked").each(function(){
+        $.ajax({
+            type: "POST",
+            url: "/dzj/delete_category.do",
+            async: false,
+            data: {category:$(this).val()},
+            success: function(result) {
+                $("#show_message").append("删除分类"+$(this).val()+"<br>");
+            },
+            error: function() {
+                $("#show_message").show();
+                $("#show_message").html("分类删除失败");
+            }
+        })
+    });
+}
+
 var init = function() {
     $("#success_text").html("");
     $("#fail_text").html("");

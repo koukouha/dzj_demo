@@ -1,6 +1,7 @@
 package com.dzj.demo.mapper;
 
 import com.dzj.demo.domain.DzjMasterBean;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -31,5 +32,9 @@ public interface DzjMasterMapper {
 
     @Select("select dzj_id, dzj_title_text from dzj_master")
     List<DzjMasterBean> querydzjTitle();
+
+    @Delete("delete from dzj_master where dzj_category_id = #{dzj_category_id}")
+    int deletedzjByCategoryID(DzjMasterBean object);
+
 
 }
