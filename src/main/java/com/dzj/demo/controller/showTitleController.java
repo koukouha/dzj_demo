@@ -1,7 +1,7 @@
 package com.dzj.demo.controller;
 
-import com.dzj.demo.domain.DzjBean;
-import com.dzj.demo.mapper.DzjMapper;
+import com.dzj.demo.domain.DzjMasterBean;
+import com.dzj.demo.mapper.DzjMasterMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,11 +14,11 @@ import java.util.List;
 public class ShowTitleController {
 
     @Autowired
-    DzjMapper dzjMapper;
+    DzjMasterMapper dzjMapper;
 
     @RequestMapping(value = "/showTitle.do", method = RequestMethod.GET)
     @ResponseBody
-    public List<DzjBean>  showTitle(){
+    public List<DzjMasterBean> showTitle(){
         return dzjMapper.querydzjTitle();
     }
 }

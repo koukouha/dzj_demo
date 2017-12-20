@@ -1,5 +1,17 @@
 var upload = function() {
     init();
+    var category = window.prompt("请输入上传文件的类别", "未定义");
+    if (category) {
+        uploadFile();
+        $("#show_message").show();
+        $("#show_message").html("开始上传");
+    } else {
+        $("#show_message").show();
+        $("#show_message").html("取消上传");
+    }
+}
+
+var uploadFile = function() {
     var files = $("#fileSelect")[0].files;
     var num = 0;
     var uploadOne = function() {
