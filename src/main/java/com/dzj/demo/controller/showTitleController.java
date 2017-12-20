@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+/**
+ * Created by hongbo.gao on 2017/12/6.
+ */
 @Controller
 public class ShowTitleController {
 
@@ -18,7 +21,9 @@ public class ShowTitleController {
 
     @RequestMapping(value = "/showTitle.do", method = RequestMethod.GET)
     @ResponseBody
-    public List<DzjMasterBean> showTitle(){
-        return dzjMapper.querydzjTitle();
+    public List<DzjMasterBean> showTitle(String id){
+        DzjMasterBean dzjMasterBean = new DzjMasterBean();
+        dzjMasterBean.setDzj_category_id(Integer.parseInt(id));
+        return dzjMapper.querydzjByCategoryID(dzjMasterBean);
     }
 }

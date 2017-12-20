@@ -8,7 +8,6 @@
     float:left;
     width:39%;
     font-size: 15px;
-    border: solid thin #DDDDDD;
     min-height: 200px;
     min-width: 200px;
     margin-top: 10px;
@@ -20,6 +19,18 @@
     min-height: 200px;
     min-width: 200px;
     margin-top: 10px;
+}
+.fileUploadContent .box-left .box-left1{
+    float:left;
+    width:29%;
+    border: solid thin #DDDDDD;
+    min-height: 200px;
+}
+.fileUploadContent .box-left .box-left2{
+    float:right;
+    width:69%;
+    border: solid thin #DDDDDD;
+    min-height: 200px;
 }
 .fileUploadContent .message{
     font-size: 15px;

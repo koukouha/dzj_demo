@@ -24,7 +24,10 @@ public interface DzjMasterMapper {
     List<DzjMasterBean> querydzj();
 
     @Select("select * from dzj_master where dzj_id = #{dzj_id}")
-    DzjMasterBean querydzjLimit1(DzjMasterBean object);
+    DzjMasterBean querydzjByID(DzjMasterBean object);
+
+    @Select("select * from dzj_master where dzj_category_id = #{dzj_category_id}")
+    List<DzjMasterBean> querydzjByCategoryID(DzjMasterBean object);
 
     @Select("select dzj_id, dzj_title_text from dzj_master")
     List<DzjMasterBean> querydzjTitle();

@@ -3,9 +3,8 @@ package com.dzj.demo.domain;
 import lombok.Data;
 
 /**
-*
-*  @author author
-*/
+ * Created by hongbo.gao on 2017/12/6.
+ */
 @Data
 public class DzjMasterBean {
 

@@ -21,7 +21,7 @@ public class LoginController {
 	@Autowired
 	DzjUserInfoMapper dzjManageUserMapper;
 
-	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/login.do")
 	public ModelAndView init(HttpServletRequest request, String username, String password){
 
 		ModelMap model = new ModelMap();

@@ -35,8 +35,9 @@ public class UploadController {
 			DzjMasterBean dzj = new DzjMasterBean();
 			dzj.setDzj_title_text(file.getOriginalFilename());
 			dzj.setDzj_text(text);
+			dzj.setDzj_category_id(Integer.parseInt(request.getParameter("categoryID")));
 			dzjMapper.insertdzj(dzj);
-			return "success:" + dzj.getDzj_title_text();
+			return "上传完毕:" + dzj.getDzj_title_text();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -53,6 +54,5 @@ public class UploadController {
 		}
 		return builder.toString();
 	}
-
 
 }

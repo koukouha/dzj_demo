@@ -19,6 +19,6 @@ public class ShowTextController {
     public String showTitle(int id){
         DzjMasterBean dzjBean = new DzjMasterBean();
         dzjBean.setDzj_id(id);
-        return dzjMapper.querydzjLimit1(dzjBean).getDzj_text();
+        return dzjMapper.querydzjByID(dzjBean).getDzj_text();
     }
 }

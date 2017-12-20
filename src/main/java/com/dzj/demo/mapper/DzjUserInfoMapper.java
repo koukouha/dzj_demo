@@ -12,14 +12,14 @@ import java.util.List;
  */
 public interface DzjUserInfoMapper {
 
-	@Insert("insert into dzj_manage_user(username, password) values(#{username}, #{password})")
+	@Insert("insert into dzj_user_info(username, password) values(#{username}, #{password})")
 	int insertDzjManageUser(DzjUserInfoBean object);
 
-	@Update("update dzj_manage_user set username = #{username}, password = #{password} where id=#{id}")
+	@Update("update dzj_user_info set username = #{username}, password = #{password} where id=#{id}")
 	int updateDzjManageUser(DzjUserInfoBean object);
 
-	@Select("select * from dzj_manage_user")
+	@Select("select * from dzj_user_info")
 	List<DzjUserInfoBean> queryDzjManageUser();
 
-	@Select("select * from dzj_manage_user where username = #{username} and password = #{password}") DzjUserInfoBean queryDzjManageUserbyUsernameAndPassword(DzjUserInfoBean object);
+	@Select("select * from dzj_user_info where username = #{username} and password = #{password}") DzjUserInfoBean queryDzjManageUserbyUsernameAndPassword(DzjUserInfoBean object);
 }

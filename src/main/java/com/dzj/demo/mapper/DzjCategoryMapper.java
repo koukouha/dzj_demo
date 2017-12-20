@@ -1,6 +1,6 @@
 package com.dzj.demo.mapper;
 
-import com.dzj.demo.domain.DzjMasterBean;
+import com.dzj.demo.domain.DzjCategoryBean;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
@@ -11,17 +11,20 @@ import java.util.List;
  */
 public interface DzjCategoryMapper {
 
-    @Insert("insert into dzj_category(dzj_category_id, dzj_category_text) "
-            + "values(#{dzj_category_id}, #{dzj_category_text})")
-    int insertdzj(DzjMasterBean object);
+    @Insert("insert into dzj_category(dzj_category_text) "
+            + "values(#{dzj_category_text})")
+    int insertdzj(DzjCategoryBean object);
 
     @Select("select * from dzj_category")
-    List<DzjMasterBean> querydzj();
+    List<DzjCategoryBean> querydzj();
 
     @Select("select * from dzj_category where dzj_category_id = #{dzj_category_id}")
-    DzjMasterBean querydzjLimit1(DzjMasterBean object);
+    DzjCategoryBean querydzjByID(DzjCategoryBean object);
+
+    @Select("select * from dzj_category where dzj_category_text = #{dzj_category_text}")
+    DzjCategoryBean querydzjByCategoryText(DzjCategoryBean object);
 
     @Select("select dzj_category_id, dzj_category_text from dzj_category")
-    List<DzjMasterBean> querydzjTitle();
+    List<DzjCategoryBean> querydzjTitle();
 
 }
