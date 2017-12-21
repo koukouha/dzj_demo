@@ -167,7 +167,6 @@ var showDeleteCategory = function() {
 
 var deleteCategory = function() {
     init();
-    $("#show_message").show();
     $("#title_list").html("");
     $("input[name='categorylist']:checked").each(function(){
         $.ajax({
@@ -176,11 +175,10 @@ var deleteCategory = function() {
             async: false,
             data: {category:$(this).val()},
             success: function(result) {
-                $("#show_message").append("删除分类"+$(this).val()+"<br>");
+                $("#show_message").append(result+"<br>");
             },
-            error: function() {
-                $("#show_message").show();
-                $("#show_message").html("分类删除失败");
+            error: function(result) {
+                $("#show_message").html(result);
             }
         })
     });

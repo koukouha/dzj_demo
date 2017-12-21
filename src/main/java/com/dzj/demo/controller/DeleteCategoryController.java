@@ -35,9 +35,9 @@ public class DeleteCategoryController {
 			selectedMaster.setDzj_category_id(selectedCategory.getDzj_category_id());
 			dzjMasterMapper.deletedzjByCategoryID(selectedMaster);
 			dzjCategoryMapper.deletedzjByCategoryID(selectedCategory);
-			return "success";
+			return "删除分类["+category+"]";
 		} else {
-			return "failed";
+			return "删除失败";
 		}
 	}
 }
